@@ -1,0 +1,29 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.buttonProduct {
+  @include flexbox($justify: center, $align: center);
+  width: 206px;
+  height: 50px;
+  background-color: color(yellow, base);
+  color: color(violet, base);
+  border: none;
+  border-radius: radius("sm");
+  cursor: pointer;
+
+  @include font-style("poppins", "bold");
+  font-size: font-size("xlarge");
+  text-transform: none;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: color(yellow, hover);
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

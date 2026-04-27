@@ -1,0 +1,104 @@
+@use "sass:color";
+
+$colors: (
+  blue: (
+    base: #3442b5,
+    hover: #3019b2,
+    100: color.adjust(#3442b5, $lightness: 35%),
+    200: color.adjust(#3442b5, $lightness: 20%),
+  ),
+
+  yellow: (
+    base: #f7ca11,
+    hover: color.adjust(#f7ca11, $lightness: -5%),
+    100: color.adjust(#f7ca11, $lightness: 35%),
+  ),
+
+  violet: (
+    base: #271c47,
+    100: color.adjust(#271c47, $lightness: 35%),
+    200: #3019b2,
+  ),
+
+  gray: (
+    background: #f4f4f4,
+    icon: #9f9f9f,
+    border: #bdbdbd,
+    text: #9f9f9f,
+    dark: #3f3f40,
+    black: #3b3b3b,
+  ),
+
+  white: (
+    base: #ffffff,
+  ),
+);
+
+$font-families: (
+  "poppins": (
+    "Poppins",
+    sans-serif,
+  ),
+);
+
+$font-sizes: (
+  "xsmall": 8px,
+  "small": 11px,
+  "medium": 12px,
+  "large": 14px,
+  "xlarge": 16px,
+  "xxlarge": 18px,
+  "xxxlarge": 20px,
+  "xxxxlarge": 24px,
+);
+
+$spacings: (
+  "none": 0,
+  "xs": 4px,
+  "sm": 8px,
+  "md": 12px,
+  "lg": 16px,
+  "xl": 20px,
+  "xxl": 24px,
+);
+
+$radius: (
+  "none": 0,
+  "sm": 4px,
+  "md": 8px,
+  "lg": 12px,
+  "xl": 16px,
+  "xxl": 20px,
+);
+
+@function color($name, $variant: base) {
+  $group: map-get($colors, $name);
+
+  @if $group == null {
+    @error "Cor `#{$name}` não existe.";
+  }
+
+  $value: map-get($group, $variant);
+
+  @if $value == null {
+    @error "Variação `#{$variant}` não existe em `#{$name}`.";
+  }
+
+  @return $value;
+}
+
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+@function spacing($size) {
+  @return map-get($spacings, $size);
+}
+
+@function font-family($name) {
+  @return map-get($font-families, $name);
+}
+
+@function radius($size) {
+  @return map-get($radius, $size);
+}

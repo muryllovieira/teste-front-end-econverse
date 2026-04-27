@@ -1,0 +1,21 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.text_icon {
+  display: flex;
+  align-items: center;
+  gap: spacing("sm");
+  font-size: font-size("semiBold");
+  color: color(gray, text);
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: color(gray, icon);
+  }
+
+  strong {
+    color: color(violet, 200);
+    font-weight: 600;
+  }
+}

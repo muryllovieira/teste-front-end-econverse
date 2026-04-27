@@ -1,0 +1,45 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.nav_item {
+  display: flex;
+  align-items: center;
+  gap: spacing("xs");
+  white-space: nowrap;
+
+  a {
+    display: block;
+    padding: spacing("md") 0;
+    font-size: font-size("large");
+    font-weight: 500;
+    color: color(gray, text);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      color: color(blue, base);
+      border-bottom-color: color(blue, base);
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: color(gray, icon);
+  }
+
+  &__highlight {
+    a {
+      color: color(violet, 200);
+      font-weight: 700;
+
+      &:hover {
+        color: color(violet, 100);
+        border-bottom-color: color(violet, 100);
+      }
+    }
+  }
+}
