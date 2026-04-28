@@ -1,0 +1,23 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.brand_item {
+  @include flexbox($justify: center, $align: center);
+  width: 211px;
+  height: 211px;
+  background-color: color(white);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 172px;
+    height: auto;
+    object-fit: contain;
+  }
+}

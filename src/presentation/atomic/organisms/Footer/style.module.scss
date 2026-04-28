@@ -1,0 +1,16 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.footer {
+  font-family: font-family("poppins");
+
+  &__bottom {
+    @include flexbox($justify: center, $align: center);
+    padding: spacing("lg");
+
+    p {
+      font-size: font-size("medium");
+      color: color(gray, text);
+    }
+  }
+}

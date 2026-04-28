@@ -1,0 +1,28 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.text_input {
+  width: 232px;
+  padding: spacing("sm") spacing("lg");
+
+  background-color: color(white);
+  color: color(gray, "text");
+
+  border: 1px solid color(gray, "border");
+  border-radius: radius("sm");
+
+  @include font-style("poppins", "regular");
+  font-size: 14px;
+  line-height: 18px;
+
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: #9f9f9f;
+  }
+
+  &:focus {
+    border-color: color(blue, "base");
+  }
+}

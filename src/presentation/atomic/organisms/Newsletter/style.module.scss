@@ -1,0 +1,76 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.section {
+  display: flex;
+  width: 100%;
+  background-color: color(violet, base);
+  padding: 60px 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: spacing("xxxl");
+  padding: 0 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.content {
+  @include flexbox($direction: column, $align: start, $gap: spacing("sm"));
+
+  h3 {
+    color: color(white, base);
+    @include font-style("outfit", "semibold");
+    font-size: font-size("xxxxxlarge");
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: 520px;
+    color: color(white, base);
+    @include font-style("poppins", "light");
+    font-size: font-size("large");
+    line-height: 1.4;
+    opacity: 0.85;
+  }
+}
+
+.form {
+  @include flexbox($direction: column, $align: start, $gap: spacing("lg"));
+  width: 100%;
+}
+
+.inputs {
+  @include flexbox($align: center, $gap: spacing("md"));
+  width: 100%;
+
+  :global(.text_input) {
+    flex: 1;
+  }
+}
+
+.checkbox_wrapper {
+  label {
+    color: color(white, base);
+    font-size: font-size("large");
+  }
+}
+
+@include responsive($breakpoint: large) {
+  .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 0 spacing("xl");
+  }
+
+  .content {
+    align-items: center;
+  }
+
+  .inputs {
+    @include flexbox($direction: column, $align: stretch, $gap: spacing("md"));
+  }
+}

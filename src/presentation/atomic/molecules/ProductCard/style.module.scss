@@ -1,0 +1,83 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  elevation: 1;
+  //border: 1px solid color(gray, border);
+  border-radius: radius("md");
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: spacing("xs");
+    padding: spacing("lg");
+  }
+
+  &__name {
+    font-size: font-size("large");
+    color: color(gray, black);
+    line-height: 1.4;
+  }
+
+  &__original {
+    font-size: font-size("medium");
+    color: color(gray, text);
+    text-decoration: line-through;
+  }
+
+  &__price {
+    font-size: font-size("xxlarge");
+    font-weight: 700;
+    color: color(gray, black);
+  }
+
+  &__installments {
+    font-size: font-size("small");
+    color: color(gray, text);
+  }
+
+  &__shipping {
+    font-size: font-size("small");
+    color: color(blue, base);
+    font-weight: 500;
+  }
+
+  &__button {
+    margin-top: spacing("sm");
+    width: 100%;
+    padding: spacing("md");
+    background-color: color(blue, base);
+    color: color(white);
+    font-size: font-size("medium");
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: radius("sm");
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: color(blue, hover);
+    }
+  }
+}

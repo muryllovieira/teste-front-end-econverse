@@ -1,0 +1,82 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.footer_links {
+  @include flexbox($align: stretch);
+  background-color: color(gray, "background");
+  padding: spacing("xxxl") spacing("xxxxxl");
+  width: 100%;
+
+  &__brand {
+    @include flexbox($direction: column, $justify: center, $gap: spacing("lg"));
+    width: 40%;
+    padding-right: spacing("xxxxxl");
+    border-right: 1px solid color(gray, border);
+    flex-shrink: 0;
+
+    img {
+      height: 44px;
+      width: auto;
+    }
+
+    p {
+      font-size: font-size("large");
+      color: color(gray, dark);
+      line-height: 1.5;
+      max-width: 260px;
+    }
+  }
+
+  &__socials {
+    @include flexbox($align: center, $gap: spacing("lg"));
+
+    a {
+      color: color(gray, dark);
+      transition: color 0.2s ease;
+      display: flex;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover {
+        color: color(blue, base);
+      }
+    }
+  }
+
+  &__nav {
+    @include flexbox($align: flex-start, $justify: space-evenly);
+    flex: 1;
+    padding-left: spacing("xxxxxl");
+  }
+
+  &__group {
+    @include flexbox($direction: column, $gap: spacing("lg"));
+
+    h4 {
+      font-size: font-size("large");
+      font-weight: 700;
+      color: color(gray, black);
+    }
+
+    ul {
+      @include flexbox($direction: column, $gap: spacing("md"));
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      font-size: font-size("large");
+      color: color(gray, dark);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: color(blue, base);
+      }
+    }
+  }
+}

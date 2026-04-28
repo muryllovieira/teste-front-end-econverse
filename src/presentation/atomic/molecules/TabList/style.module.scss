@@ -1,0 +1,37 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.tab_list {
+  display: flex;
+  border: 1px solid color(gray, border);
+  border-radius: radius("sm");
+  overflow: hidden;
+  width: 100%;
+  font-family: font-family("poppins");
+}
+
+.tab_item {
+  padding: spacing("md") spacing("xl");
+  font-family: font-family("poppins");
+  font-size: font-size("xlarge");
+  font-weight: 600;
+  color: color(gray, dark);
+  background: transparent;
+  border: none;
+  border-right: 1px solid color(gray, border);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  flex: 1;
+  text-align: center;
+
+  &:last-child {
+    border-right: none;
+  }
+
+  &__active {
+    color: color(blue, base);
+    font-weight: 700;
+  }
+}

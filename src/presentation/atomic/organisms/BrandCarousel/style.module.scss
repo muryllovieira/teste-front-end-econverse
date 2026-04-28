@@ -1,0 +1,29 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.brands {
+  padding: spacing("xxxxl") 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: spacing("xxl");
+
+  &__title {
+    font-size: font-size("xxxxlarge");
+    font-weight: 700;
+    color: color(blue, base);
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: spacing("xxl");
+    width: 100%;
+    overflow-x: auto;
+    padding: spacing("xl") 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

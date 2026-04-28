@@ -2,15 +2,15 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import styles from "./style.module.scss";
 
-interface SearchBarProps {
+type SearchBarProps = {
   placeholder?: string;
   onSearch?: (value: string) => void;
-}
+};
 
-export default function SearchBar({
+export const SearchBar: React.FC<SearchBarProps> = ({
   placeholder = "O que você está buscando?",
   onSearch,
-}: SearchBarProps) {
+}) => {
   const [value, setValue] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,21 +24,19 @@ export default function SearchBar({
   };
 
   return (
-    <>
-      <div className={styles.searchContainer}>
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={value}
-          onChange={handleChange}
-          className={styles.searchBarInput}
-        />
-        <Search
-          color="#bdbdbd"
-          className={styles.searchIcon}
-          onClick={handleClear}
-        />
-      </div>
-    </>
+    <div className={styles.searchContainer}>
+      <input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+        className={styles.searchBarInput}
+      />
+      <Search
+        color="#bdbdbd"
+        className={styles.searchIcon}
+        onClick={handleClear}
+      />
+    </div>
   );
-}
+};

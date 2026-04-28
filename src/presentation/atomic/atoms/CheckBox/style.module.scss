@@ -1,0 +1,22 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.checkbox {
+  @include flexbox($align: center, $gap: 4px);
+
+  input {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    accent-color: color(blue, "base");
+  }
+
+  label {
+    cursor: pointer;
+    color: color(white);
+
+    @include font-style("poppins", "regular");
+    font-size: 14px;
+    line-height: 150%;
+  }
+}

@@ -1,0 +1,14 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.category_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: spacing("xxl") 5rem;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

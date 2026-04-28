@@ -1,0 +1,9 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.partner_list {
+  display: flex;
+  gap: spacing("lg");
+  padding: 0 5rem;
+  overflow-x: auto;
+}

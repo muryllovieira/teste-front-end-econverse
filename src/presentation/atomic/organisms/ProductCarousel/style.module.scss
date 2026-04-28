@@ -1,0 +1,50 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.carousel {
+  padding: 70px 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: spacing("xl");
+
+  &__title {
+    text-align: center;
+    font-size: font-size("xxxxlarge");
+    font-weight: 700;
+    color: color(blue, base);
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: spacing("sm");
+  }
+
+  &__track {
+    display: flex;
+    gap: spacing("lg");
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > * {
+      scroll-snap-align: start;
+      flex: 0 0 calc(25% - 18px);
+
+      @media (max-width: 1024px) {
+        flex: 0 0 calc(33.333% - 18px);
+      }
+      @media (max-width: 768px) {
+        flex: 0 0 calc(50% - 18px);
+      }
+      @media (max-width: 480px) {
+        flex: 0 0 100%;
+      }
+    }
+  }
+}

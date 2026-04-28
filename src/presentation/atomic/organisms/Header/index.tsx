@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.png";
-import SearchBar from "@/presentation/atomic/atoms/SearchBar";
+import { SearchBar } from "@/presentation/atomic/atoms/SearchBar";
 import { TextIcon } from "@/presentation/atomic/atoms/TextIcon";
 import {
   CircleUserRound,
@@ -14,7 +14,7 @@ import {
 import { NavItem } from "../../atoms/NavItem";
 import styles from "./style.module.scss";
 
-export function Header() {
+export const Header: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header__benefits}>
@@ -74,4 +74,4 @@ export function Header() {
       </nav>
     </header>
   );
-}
+};
