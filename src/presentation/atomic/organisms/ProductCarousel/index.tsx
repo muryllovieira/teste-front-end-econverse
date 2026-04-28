@@ -90,9 +90,6 @@ export const ProductCarousel = () => {
           name={selectedProduct.productName}
           price={selectedProduct.price}
           description={selectedProduct.descriptionShort}
-          onBuy={(qty) =>
-            console.log(`Comprando ${qty} de ${selectedProduct.productName}`)
-          }
         />
       )}
     </section>
