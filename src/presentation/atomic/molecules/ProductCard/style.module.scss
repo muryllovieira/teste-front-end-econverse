@@ -4,8 +4,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  elevation: 1;
-  //border: 1px solid color(gray, border);
+  border: 1px solid color(gray, border);
   border-radius: radius("md");
   overflow: hidden;
   width: 100%;
