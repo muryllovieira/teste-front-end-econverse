@@ -6,6 +6,14 @@
   width: 100%;
   background-color: color(violet, base);
   padding: 60px 0;
+
+  @include responsive($breakpoint: large) {
+    padding: 40px 0;
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: 30px 0;
+  }
 }
 
 .container {
@@ -21,11 +29,24 @@
 .content {
   @include flexbox($direction: column, $align: start, $gap: spacing("sm"));
 
+  @include responsive($breakpoint: small) {
+    align-items: center;
+    text-align: center;
+  }
+
   h3 {
     color: color(white, base);
     @include font-style("outfit", "semibold");
     font-size: font-size("xxxxxlarge");
     line-height: 1.2;
+
+    @include responsive($breakpoint: large) {
+      font-size: font-size("xxxxlarge");
+    }
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("xxxlarge");
+    }
   }
 
   p {
@@ -35,6 +56,11 @@
     font-size: font-size("large");
     line-height: 1.4;
     opacity: 0.85;
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
+      max-width: 100%;
+    }
   }
 }
 
@@ -46,6 +72,10 @@
 .inputs {
   @include flexbox($align: center, $gap: spacing("md"));
   width: 100%;
+
+  @include responsive($breakpoint: small) {
+    @include flexbox($direction: column, $align: stretch, $gap: spacing("md"));
+  }
 
   :global(.text_input) {
     flex: 1;

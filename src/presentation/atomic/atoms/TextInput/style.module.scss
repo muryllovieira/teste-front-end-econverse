@@ -18,6 +18,16 @@
   outline: none;
   transition: border-color 0.2s ease;
 
+  @include responsive($breakpoint: large) {
+    width: 100%;
+  }
+
+  @include responsive($breakpoint: small) {
+    width: 100%;
+    padding: spacing("sm") spacing("md");
+    font-size: 13px;
+  }
+
   &::placeholder {
     color: #9f9f9f;
   }

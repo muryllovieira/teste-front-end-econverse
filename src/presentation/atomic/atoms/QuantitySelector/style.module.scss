@@ -8,6 +8,11 @@
   padding: spacing("xs") spacing("md");
   width: fit-content;
 
+  @include responsive($breakpoint: small) {
+    padding: spacing("xs") spacing("sm");
+    gap: spacing("xs");
+  }
+
   &__btn {
     background: none;
     border: none;

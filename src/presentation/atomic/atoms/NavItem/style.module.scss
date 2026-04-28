@@ -7,6 +7,10 @@
   gap: spacing("xs");
   white-space: nowrap;
 
+  @include responsive($breakpoint: small) {
+    white-space: normal;
+  }
+
   a {
     display: block;
     padding: spacing("md") 0;
@@ -18,6 +22,11 @@
     transition:
       color 0.2s ease,
       border-color 0.2s ease;
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
+      padding: spacing("sm") 0;
+    }
 
     &:hover {
       color: color(blue, base);

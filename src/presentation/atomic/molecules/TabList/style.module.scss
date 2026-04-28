@@ -8,6 +8,9 @@
   overflow: hidden;
   width: 100%;
   font-family: font-family("poppins");
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .tab_item {
@@ -25,6 +28,16 @@
     color 0.2s ease;
   flex: 1;
   text-align: center;
+
+  @include responsive($breakpoint: large) {
+    padding: spacing("md") spacing("lg");
+    font-size: font-size("large");
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: spacing("sm") spacing("md");
+    font-size: font-size("medium");
+  }
 
   &:last-child {
     border-right: none;

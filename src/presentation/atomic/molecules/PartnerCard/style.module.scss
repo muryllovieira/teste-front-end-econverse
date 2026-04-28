@@ -9,6 +9,10 @@
   border-radius: radius("xxl");
   overflow: hidden;
 
+  @include responsive($breakpoint: small) {
+    border-radius: radius("lg");
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -33,10 +37,26 @@
   left: 0;
   font-family: font-family("poppins");
 
+  @include responsive($breakpoint: large) {
+    padding: spacing("xxl") spacing("xxl");
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: spacing("lg") spacing("lg");
+  }
+
   h3 {
     color: color(white);
     font-size: font-size("xxxxxxlarge");
     font-weight: 600;
+
+    @include responsive($breakpoint: large) {
+      font-size: font-size("xxxxxlarge");
+    }
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("xxxlarge");
+    }
   }
 
   p {
@@ -45,5 +65,10 @@
     font-weight: 400;
     line-height: normal;
     max-width: 200px;
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
+      max-width: 100%;
+    }
   }
 }

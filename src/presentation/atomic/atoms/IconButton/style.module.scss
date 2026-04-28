@@ -15,6 +15,11 @@
   transition: background-color 0.2s ease;
   z-index: 1;
 
+  @include responsive($breakpoint: small) {
+    width: 32px;
+    height: 32px;
+  }
+
   svg {
     width: 18px;
     height: 18px;

@@ -8,10 +8,24 @@
   align-items: center;
   gap: spacing("xxl");
 
+  @include responsive($breakpoint: large) {
+    padding: spacing("xxl") spacing("xl");
+    gap: spacing("lg");
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: spacing("lg") spacing("md");
+    gap: spacing("md");
+  }
+
   &__title {
     font-size: font-size("xxxxlarge");
     font-weight: 700;
     color: color(blue, base);
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("xxxlarge");
+    }
   }
 
   &__list {
@@ -21,6 +35,17 @@
     width: 100%;
     overflow-x: auto;
     padding: spacing("xl") 0;
+
+    @include responsive($breakpoint: large) {
+      gap: spacing("lg");
+      padding: spacing("md") 0;
+    }
+
+    @include responsive($breakpoint: small) {
+      gap: spacing("md");
+      padding: spacing("sm") 0;
+      justify-content: flex-start;
+    }
 
     &::-webkit-scrollbar {
       display: none;

@@ -69,7 +69,7 @@ export const Header: React.FC = () => {
           <NavItem text="MODA" />
           <NavItem text="LANÇAMENTOS" />
           <NavItem text="OFERTAS DO DIA" highlight={true} />
-          <NavItem text="ASSINATUDA" icon={Crown} />
+          <NavItem text="ASSINATURA" icon={Crown} />
         </ul>
       </nav>
     </header>

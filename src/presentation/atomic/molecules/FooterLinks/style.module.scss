@@ -7,12 +7,29 @@
   padding: spacing("xxxl") spacing("xxxxxl");
   width: 100%;
 
+  @include responsive($breakpoint: large) {
+    padding: spacing("xl") spacing("xxl");
+  }
+
+  @include responsive($breakpoint: small) {
+    flex-direction: column;
+    padding: spacing("lg") spacing("md");
+  }
+
   &__brand {
     @include flexbox($direction: column, $justify: center, $gap: spacing("lg"));
     width: 40%;
     padding-right: spacing("xxxxxl");
     border-right: 1px solid color(gray, border);
     flex-shrink: 0;
+
+    @include responsive($breakpoint: small) {
+      width: 100%;
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: spacing("lg");
+      border-bottom: 1px solid color(gray, border);
+    }
 
     img {
       height: 44px;
@@ -50,6 +67,17 @@
     @include flexbox($align: flex-start, $justify: space-evenly);
     flex: 1;
     padding-left: spacing("xxxxxl");
+
+    @include responsive($breakpoint: large) {
+      padding-left: spacing("xl");
+    }
+
+    @include responsive($breakpoint: small) {
+      flex-direction: column;
+      padding-left: 0;
+      padding-top: spacing("lg");
+      gap: spacing("lg");
+    }
   }
 
   &__group {

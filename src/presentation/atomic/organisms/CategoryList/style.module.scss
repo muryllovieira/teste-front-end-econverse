@@ -8,6 +8,17 @@
   padding: spacing("xxl") 5rem;
   overflow-x: auto;
 
+  @include responsive($breakpoint: large) {
+    padding: spacing("lg") spacing("xl");
+    justify-content: flex-start;
+    gap: spacing("lg");
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: spacing("md") spacing("md");
+    gap: spacing("md");
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }

@@ -6,6 +6,14 @@
   font-family: font-family("poppins");
   padding: 0 5rem;
 
+  @include responsive($breakpoint: medium) {
+    padding: 0 spacing("lg");
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: 0 spacing("md");
+  }
+
   &__benefits {
     display: flex;
     justify-content: space-evenly;
@@ -13,6 +21,15 @@
     gap: spacing("xxl");
     padding: spacing("sm") spacing("lg");
     border-bottom: 1px solid color(gray, border);
+
+    @include responsive($breakpoint: large) {
+      gap: spacing("lg");
+      padding: spacing("xs") spacing("md");
+    }
+
+    @include responsive($breakpoint: small) {
+      display: none;
+    }
   }
 
   &__main {
@@ -22,6 +39,16 @@
     gap: spacing("xl");
     padding: spacing("md") spacing("xxl");
     border-bottom: 1px solid color(gray, border);
+
+    @include responsive($breakpoint: large) {
+      padding: spacing("md") spacing("md");
+      gap: spacing("md");
+    }
+
+    @include responsive($breakpoint: small) {
+      padding: spacing("sm") 0;
+      gap: spacing("sm");
+    }
   }
 
   &__logo {
@@ -31,6 +58,10 @@
       height: 40px;
       width: auto;
       display: block;
+
+      @include responsive($breakpoint: small) {
+        height: 28px;
+      }
     }
   }
 
@@ -39,6 +70,10 @@
     align-items: center;
     gap: spacing("xs");
     flex-shrink: 0;
+
+    @include responsive($breakpoint: small) {
+      gap: 0;
+    }
   }
 
   &__action {
@@ -60,6 +95,16 @@
       width: 32px;
       height: 32px;
       color: color(gray, icon);
+
+      @include responsive($breakpoint: small) {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    @include responsive($breakpoint: small) {
+      width: 32px;
+      height: 32px;
     }
 
     &:hover {
@@ -69,7 +114,6 @@
   }
 
   &__nav {
-    padding: 0 spacing("xxl");
     border-bottom: 1px solid color(gray, border);
     display: flex;
     justify-content: center;
@@ -84,5 +128,15 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    box-shadow: 0px 8px 16px 0px rgba(57, 48, 19, 0.12);
+
+    @include responsive($breakpoint: large) {
+      gap: spacing("md");
+    }
+
+    @include responsive($breakpoint: small) {
+      flex-direction: column;
+      gap: spacing("sm");
+    }
   }
 }

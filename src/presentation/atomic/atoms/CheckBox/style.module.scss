@@ -4,6 +4,10 @@
 .checkbox {
   @include flexbox($align: center, $gap: 4px);
 
+  @include responsive($breakpoint: small) {
+    gap: 6px;
+  }
+
   input {
     cursor: pointer;
     width: 15px;
@@ -18,5 +22,9 @@
     @include font-style("poppins", "regular");
     font-size: 14px;
     line-height: 150%;
+
+    @include responsive($breakpoint: small) {
+      font-size: 12px;
+    }
   }
 }

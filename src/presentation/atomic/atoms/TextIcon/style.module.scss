@@ -8,6 +8,10 @@
   font-size: font-size("semiBold");
   color: color(gray, text);
 
+  @include responsive($breakpoint: small) {
+    font-size: font-size("medium");
+  }
+
   svg {
     width: 20px;
     height: 20px;

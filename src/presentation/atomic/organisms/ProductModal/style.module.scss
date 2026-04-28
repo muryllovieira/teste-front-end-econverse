@@ -18,6 +18,18 @@
   width: 100%;
   @include flexbox($align: center, $gap: spacing("xl"));
 
+  @include responsive($breakpoint: medium) {
+    padding: spacing("lg");
+    gap: spacing("md");
+    flex-direction: column;
+  }
+
+  @include responsive($breakpoint: small) {
+    padding: spacing("md");
+    width: calc(100% - spacing("xl"));
+    margin: 0 spacing("md");
+  }
+
   &__close {
     position: absolute;
     top: spacing("md");
@@ -36,6 +48,14 @@
   &__image {
     flex-shrink: 0;
     width: 220px;
+
+    @include responsive($breakpoint: medium) {
+      width: 180px;
+    }
+
+    @include responsive($breakpoint: small) {
+      width: 150px;
+    }
 
     img {
       width: 100%;
@@ -58,6 +78,10 @@
     font-weight: 600;
     color: color(gray, text);
     letter-spacing: 0.05em;
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
+    }
   }
 
   &__price {
@@ -65,27 +89,30 @@
     font-size: font-size("xxlarge");
     font-weight: 700;
     color: color(violet, base);
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("xlarge");
+    }
   }
 
   &__description {
     font-size: font-size("large");
     color: color(gray, icon);
     line-height: 1.5;
-  }
 
-  &__link {
-    font-size: font-size("medium");
-    color: color(violet, 200);
-    text-decoration: none;
-    font-weight: 500;
-
-    &:hover {
-      text-decoration: underline;
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
     }
   }
 
   &__actions {
     @include flexbox($align: center, $gap: spacing("md"));
     margin-top: spacing("sm");
+
+    @include responsive($breakpoint: small) {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
   }
 }

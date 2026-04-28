@@ -16,7 +16,10 @@ export const HomeScreenTemplate: FC = () => {
       <CategoryList />
       <ProductCarousel />
       <PartnerList />
+      <ProductCarousel main="view all" />
+      <PartnerList />
       <BrandCarousel />
+      <ProductCarousel main="view all" />
       <Footer />
     </>
   );

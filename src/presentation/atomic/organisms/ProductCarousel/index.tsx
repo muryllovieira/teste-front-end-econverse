@@ -3,7 +3,7 @@ import { IconButton } from "@/presentation/atomic/atoms/IconButton";
 import { ProductCard } from "@/presentation/atomic/molecules/ProductCard";
 import { TabList } from "@/presentation/atomic/molecules/TabList";
 import { ProductModal } from "@/presentation/atomic/organisms/ProductModal";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 import styles from "./style.module.scss";
 
 const tabs = [
@@ -15,7 +15,13 @@ const tabs = [
   "VER TODOS",
 ];
 
-export const ProductCarousel = () => {
+type ProductCarouselProps = {
+  main?: "tabs" | "view all";
+};
+
+export const ProductCarousel: FC<ProductCarouselProps> = ({
+  main = "tabs",
+}) => {
   const [activeTab, setActiveTab] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
@@ -48,7 +54,17 @@ export const ProductCarousel = () => {
         <div className={styles.carousel__divider}></div>
       </div>
 
-      <TabList items={tabs} activeItem={activeTab} onTabClick={setActiveTab} />
+      {main === "tabs" ? (
+        <TabList
+          items={tabs}
+          activeItem={activeTab}
+          onTabClick={setActiveTab}
+        />
+      ) : (
+        <div className={styles.carousel__viewAll}>
+          <a href="#">Ver Todos</a>
+        </div>
+      )}
 
       <div className={styles.carousel__wrapper}>
         <IconButton direction="left" onClick={handlePrev} />

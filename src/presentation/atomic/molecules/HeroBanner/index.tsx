@@ -12,6 +12,7 @@ export const HeroBanner: React.FC = () => {
           <h3>
             <span>50% Off</span> nos produtos{" "}
           </h3>
+          <div></div>
           <Button value="Ver Produto" variant="primary" />
         </div>
       </div>

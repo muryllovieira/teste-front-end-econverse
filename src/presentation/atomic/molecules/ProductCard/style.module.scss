@@ -9,6 +9,10 @@
   width: 100%;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.22);
 
+  @include responsive($breakpoint: small) {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  }
+
   &__image {
     width: 100%;
     aspect-ratio: 1;
@@ -35,6 +39,10 @@
     font-size: font-size("large");
     color: color(gray, black);
     line-height: 1.4;
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("medium");
+    }
   }
 
   &__original {
@@ -47,6 +55,10 @@
     font-size: font-size("xxlarge");
     font-weight: 700;
     color: color(gray, black);
+
+    @include responsive($breakpoint: small) {
+      font-size: font-size("xlarge");
+    }
   }
 
   &__installments {
@@ -73,6 +85,11 @@
     border-radius: radius("sm");
     cursor: pointer;
     transition: background-color 0.2s ease;
+
+    @include responsive($breakpoint: small) {
+      padding: spacing("sm");
+      font-size: font-size("small");
+    }
 
     &:hover {
       background-color: color(blue, hover);

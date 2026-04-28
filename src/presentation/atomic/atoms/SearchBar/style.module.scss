@@ -6,6 +6,16 @@
   width: 630px;
   height: min-content;
   position: relative;
+
+  @include responsive($breakpoint: large) {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  @include responsive($breakpoint: small) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .searchBarInput {
@@ -19,6 +29,12 @@
   border-radius: radius("md");
   font-size: font-size("large");
   @include font-style("poppins", "medium");
+
+  @include responsive($breakpoint: small) {
+    height: 44px;
+    font-size: font-size("medium");
+    padding: 0 spacing("md");
+  }
 
   &:focus {
     transition: 0.35s ease;
@@ -45,4 +61,10 @@
   top: 10px;
   width: 28px;
   height: 28px;
+
+  @include responsive($breakpoint: small) {
+    width: 24px;
+    height: 24px;
+    right: 12px;
+  }
 }
