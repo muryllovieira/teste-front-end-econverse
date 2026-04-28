@@ -12,6 +12,20 @@
     font-size: font-size("xxxxlarge");
     font-weight: 700;
     color: color(blue, base);
+    white-space: nowrap;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  &__divider {
+    width: 50%;
+    height: 1px;
+    background-color: color(gray, border);
   }
 
   &__wrapper {
@@ -27,6 +41,8 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    padding-top: spacing("sm");
+    padding-bottom: spacing("sm");
 
     &::-webkit-scrollbar {
       display: none;

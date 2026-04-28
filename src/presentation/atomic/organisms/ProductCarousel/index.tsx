@@ -13,7 +13,7 @@ const tabs = [
   "VER TODOS",
 ];
 
-const products = Array.from({ length: 6 }, (_, i) => ({
+const products = Array.from({ length: 8 }, (_, i) => ({
   id: i + 1,
   image: "src/assets/iphone.png",
   name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -40,7 +40,11 @@ export const ProductCarousel = () => {
 
   return (
     <section className={styles.carousel}>
-      <h2 className={styles.carousel__title}>Produtos relacionados</h2>
+      <div className={styles.carousel__content}>
+        <div className={styles.carousel__divider}></div>
+        <h2 className={styles.carousel__title}>Produtos relacionados</h2>
+        <div className={styles.carousel__divider}></div>
+      </div>
 
       <TabList items={tabs} activeItem={activeTab} onTabClick={setActiveTab} />
 

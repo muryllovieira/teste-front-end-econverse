@@ -1,0 +1,36 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.quantity {
+  @include flexbox($align: center, $gap: spacing("sm"));
+  border: 1px solid color(gray, border);
+  border-radius: radius("sm");
+  padding: spacing("xs") spacing("md");
+  width: fit-content;
+
+  &__btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: font-size("xlarge");
+    color: color(gray, text);
+    line-height: 1;
+    width: 24px;
+    height: 24px;
+    @include flexbox($justify: center, $align: center);
+    transition: color 0.2s;
+
+    &:hover {
+      color: color(violet, base);
+    }
+  }
+
+  &__value {
+    font-family: font-family("poppins");
+    font-weight: 600;
+    font-size: font-size("large");
+    color: color(gray, text);
+    min-width: 24px;
+    text-align: center;
+  }
+}

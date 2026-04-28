@@ -1,0 +1,91 @@
+@use "/src/styles/variables" as *;
+@use "/src/styles/mixins" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  @include flexbox($justify: center, $align: center);
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  background: color(white);
+  border-radius: radius("md");
+  padding: spacing("xl");
+  max-width: 700px;
+  width: 100%;
+  @include flexbox($align: center, $gap: spacing("xl"));
+
+  &__close {
+    position: absolute;
+    top: spacing("md");
+    right: spacing("md");
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: color(gray, icon);
+    transition: color 0.2s;
+
+    &:hover {
+      color: color(gray, text);
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    width: 220px;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__content {
+    @include flexbox(
+      $direction: column,
+      $align: flex-start,
+      $gap: spacing("sm")
+    );
+    flex: 1;
+  }
+
+  &__name {
+    font-family: font-family("poppins");
+    font-size: font-size("large");
+    font-weight: 600;
+    color: color(gray, text);
+    letter-spacing: 0.05em;
+  }
+
+  &__price {
+    font-family: font-family("poppins");
+    font-size: font-size("xxlarge");
+    font-weight: 700;
+    color: color(violet, base);
+  }
+
+  &__description {
+    font-size: font-size("small");
+    color: color(gray, icon);
+    line-height: 1.5;
+  }
+
+  &__link {
+    font-size: font-size("small");
+    color: color(violet, 200);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__actions {
+    @include flexbox($align: center, $gap: spacing("md"));
+    margin-top: spacing("sm");
+  }
+}

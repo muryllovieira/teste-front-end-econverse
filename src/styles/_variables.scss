@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 
 $colors: (
   blue: (
@@ -78,33 +79,26 @@ $radius: (
 );
 
 @function color($name, $variant: base) {
-  $group: map-get($colors, $name);
-
+  $group: map.get($colors, $name);
   @if $group == null {
     @error "Cor `#{$name}` não existe.";
   }
-
-  $value: map-get($group, $variant);
-
+  $value: map.get($group, $variant);
   @if $value == null {
     @error "Variação `#{$variant}` não existe em `#{$name}`.";
   }
-
   @return $value;
 }
 
 @function font-size($size) {
-  @return map-get($font-sizes, $size);
+  @return map.get($font-sizes, $size);
 }
-
 @function spacing($size) {
-  @return map-get($spacings, $size);
+  @return map.get($spacings, $size);
 }
-
 @function font-family($name) {
-  @return map-get($font-families, $name);
+  @return map.get($font-families, $name);
 }
-
 @function radius($size) {
-  @return map-get($radius, $size);
+  @return map.get($radius, $size);
 }
