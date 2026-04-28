@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: spacing("xl");
+  overflow: hidden;
 
   &__title {
     text-align: center;
@@ -17,7 +18,6 @@
 
   &__content {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 5rem;
   }
@@ -35,32 +35,33 @@
     gap: spacing("sm");
   }
 
+  &__window {
+    width: 100%;
+    overflow: hidden;
+  }
+
   &__track {
     display: flex;
-    gap: spacing("lg");
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    gap: 0;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
     padding-top: spacing("sm");
     padding-bottom: spacing("sm");
+  }
 
-    &::-webkit-scrollbar {
-      display: none;
+  &__item {
+    flex: 0 0 25%;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+    @media (max-width: 1024px) {
+      flex: 0 0 33.333%;
     }
-
-    > * {
-      scroll-snap-align: start;
-      flex: 0 0 calc(25% - 18px);
-
-      @media (max-width: 1024px) {
-        flex: 0 0 calc(33.333% - 18px);
-      }
-      @media (max-width: 768px) {
-        flex: 0 0 calc(50% - 18px);
-      }
-      @media (max-width: 480px) {
-        flex: 0 0 100%;
-      }
+    @media (max-width: 768px) {
+      flex: 0 0 50%;
+    }
+    @media (max-width: 480px) {
+      flex: 0 0 100%;
     }
   }
 }

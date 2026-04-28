@@ -1,6 +1,5 @@
 import { Button } from "@/presentation/atomic/atoms/Button";
-import { ProductModal } from "@/presentation/atomic/organisms/ProductModal";
-import { useState, type FC } from "react";
+import { type FC } from "react";
 import styles from "./style.module.scss";
 
 type ProductCardProps = {
@@ -10,6 +9,8 @@ type ProductCardProps = {
   price: number;
   installments: number;
   installmentPrice: number;
+  description: string;
+  onClick: () => void;
 };
 
 export const ProductCard: FC<ProductCardProps> = ({
@@ -19,9 +20,8 @@ export const ProductCard: FC<ProductCardProps> = ({
   price,
   installments,
   installmentPrice,
+  onClick,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const formatPrice = (value: number) =>
     value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
@@ -41,22 +41,9 @@ export const ProductCard: FC<ProductCardProps> = ({
             ou {installments}x de {formatPrice(installmentPrice)} sem juros
           </span>
           <span className={styles.card__shipping}>Frete grátis</span>
-          <Button
-            value="COMPRAR"
-            variant="secondary"
-            onClick={() => setIsModalOpen(true)}
-          />
+          <Button value="COMPRAR" variant="secondary" onClick={onClick} />
         </div>
       </div>
-
-      <ProductModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        image={image}
-        name={name}
-        price={price}
-        onBuy={(qty) => console.log("Comprar", qty)}
-      />
     </>
   );
 };

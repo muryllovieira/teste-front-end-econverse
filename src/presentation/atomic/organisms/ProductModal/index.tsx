@@ -1,7 +1,7 @@
 import { Button } from "@/presentation/atomic/atoms/Button";
 import { QuantitySelector } from "@/presentation/atomic/atoms/QuantitySelector";
 import { X } from "lucide-react";
-import type { FC } from "react";
+import { useState, type FC } from "react";
 import styles from "./style.module.scss";
 
 type ProductModalProps = {
@@ -25,9 +25,9 @@ export const ProductModal: FC<ProductModalProps> = ({
   onClose,
   onBuy,
 }) => {
-  if (!isOpen) return null;
+  const [quantity, setQuantity] = useState(1);
 
-  let quantity = 1;
+  if (!isOpen) return null;
 
   const formatPrice = (value: number) =>
     value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -41,12 +41,7 @@ export const ProductModal: FC<ProductModalProps> = ({
         aria-modal="true"
         aria-label={name}
       >
-        <button
-          className={styles.modal__close}
-          onClick={onClose}
-          aria-label="Fechar"
-          type="button"
-        >
+        <button className={styles.modal__close} onClick={onClose} type="button">
           <X size={20} />
         </button>
 
@@ -58,22 +53,16 @@ export const ProductModal: FC<ProductModalProps> = ({
           <h2 className={styles.modal__name}>{name.toUpperCase()}</h2>
           <strong className={styles.modal__price}>{formatPrice(price)}</strong>
 
-          {description && (
-            <p className={styles.modal__description}>{description}</p>
-          )}
+          <p className={styles.modal__description}>
+            {description || "Sem descrição disponível para este produto."}
+          </p>
 
-          {detailsUrl && (
-            <a href={detailsUrl} className={styles.modal__link}>
-              Veja mais detalhes do produto &gt;
-            </a>
-          )}
+          <a href={detailsUrl || "#"} className={styles.modal__link}>
+            Veja mais detalhes do produto &gt;
+          </a>
 
           <div className={styles.modal__actions}>
-            <QuantitySelector
-              onChange={(v) => {
-                quantity = v;
-              }}
-            />
+            <QuantitySelector onChange={(v) => setQuantity(v)} />
             <Button
               value="COMPRAR"
               variant="primary"

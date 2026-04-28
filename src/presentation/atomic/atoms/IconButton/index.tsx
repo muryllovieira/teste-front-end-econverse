@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 type IconButtonProps = {
   direction: "left" | "right";
   onClick: () => void;
+  disabled?: boolean;
 };
 
 export const IconButton: FC<IconButtonProps> = ({ direction, onClick }) => {
